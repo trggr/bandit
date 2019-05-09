@@ -1,0 +1,450 @@
+#----------- Level 1
+ssh -p 2220 bandit1@bandit.labs.overthewire.org
+find . -print | xargs cat
+# CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9
+
+#----------- Level 2
+ssh -p 2220 bandit2@bandit.labs.overthewire.org
+cat "spaces in this filename" 
+# UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK
+
+#----------- Level 3
+cd inhere/
+ls -la
+cat .hidden
+# pIwrPrtPN36QITSp3EQaw936yaFoFgAB
+
+#----------- Level 4
+cd inhere/
+bandit4@bandit:~/inhere$ find . -print | xargs file
+.:         directory
+./-file09: data
+./-file06: data
+./-file01: data
+./-file02: data
+./-file05: data
+./-file03: data
+./-file08: data
+./-file07: ASCII text
+./-file04: data
+./-file00: data
+bandit4@bandit:~/inhere$ cat `find . -print  | grep 07`
+koReBOKuIDDepwhWk7jZC0RTdopnAYKh
+
+#----------- Level 5
+cd inhere
+find . -print | xargs ls -l | grep 1033
+bandit5@bandit:~/inhere$ cat maybehere07/.file2
+DXjZPULLxYr17uwoI01bNLQbtFemEgo7
+
+#---------- Level 6
+find / -print | xargs ls -l | grep bandit7 | grep bandit6 | grep 33
+cat /var/lib/dpkg/info/bandit7.password
+# HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs
+
+#----------- Level 7
+bandit7@bandit:~$ grep millionth data.txt 
+millionth	cvX2JJa4CFALtqS87jk27qwqGhBM9plV
+
+#----------- Level 8
+bandit8@bandit:~$ sort data.txt | uniq -c | grep -v "10 "
+      1 UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR
+
+#----------- Level 9
+bandit9@bandit:~$ strings data.txt | grep =====
+========== truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk
+
+#----------- Level 10
+bandit10@bandit:~$ base64 -d data.txt 
+The password is IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
+
+#----------- Level 11
+bandit11@bandit:~$ cat data.txt | tr nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+The password is 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
+
+#---------- Level 12
+mkdir /tmp/xaa
+cd /tmp/xaa
+cp ~/data.txt .
+xxd -r data.txt | gzip -d | bzip2 -d | gzip -d | tar xvf -
+tar xvf data5.bin 
+bzip2 -dc data6.bin | tar xvf -
+gzip -dc data8.bin
+The password is 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
+
+#--------- Level 13
+bandit13@bandit:~$ ssh -i sshkey.private bandit14@localhost
+bandit14@bandit:~$ cat /etc/bandit_pass/bandit14 
+4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
+
+#--------- Level 14
+bandit14@bandit:~$ nc localhost 30000
+4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
+Correct!
+BfMYroe26WYalil77FoDi9qh59eK5xNr
+
+#--------- Level 15
+bandit15@bandit:~$ openssl s_client -connect localhost:30001
+CONNECTED(00000003)
+depth=0 CN = localhost
+verify error:num=18:self signed certificate
+verify return:1
+depth=0 CN = localhost
+verify return:1
+---
+Certificate chain
+ 0 s:/CN=localhost
+   i:/CN=localhost
+---
+Server certificate
+-----BEGIN CERTIFICATE-----
+MIICBjCCAW+gAwIBAgIEBadydTANBgkqhkiG9w0BAQUFADAUMRIwEAYDVQQDDAls
+b2NhbGhvc3QwHhcNMTkwMjI3MDg1MTQ5WhcNMjAwMjI3MDg1MTQ5WjAUMRIwEAYD
+VQQDDAlsb2NhbGhvc3QwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMyEZzRA
++5ll7Ap2bwla+8x39mTviZKqrjnmLuTZj1U3mugt3G2JI5loXyjnFxlXnHUGy/xI
+OiACFOEJCce2VIkarMa1Cy13wtGuLoZxjcYSAIMzIOPykCh9+FJ89Tt1TIVXmO0C
+TJaxFMhKdX0ALZlxjN1+xoZgeOtN7yfhprjjAgMBAAGjZTBjMBQGA1UdEQQNMAuC
+CWxvY2FsaG9zdDBLBglghkgBhvhCAQ0EPhY8QXV0b21hdGljYWxseSBnZW5lcmF0
+ZWQgYnkgTmNhdC4gU2VlIGh0dHBzOi8vbm1hcC5vcmcvbmNhdC8uMA0GCSqGSIb3
+DQEBBQUAA4GBACNP1/t8pfANluA2MuoxCAkie0bDCUL/ZV7FDaH1YUAEG7wEZVFJ
+Pt8+6L8HkLYcuCPtjc2uxA8yEiqS7fiYRU26PmrQXzm09W0ah1pq+7NGMLKz596B
+AIpiTkVpA7YCUvGcYvz6yXS202e2GbLOulF2l9kx6hhhBCWubeqh2IjR
+-----END CERTIFICATE-----
+subject=/CN=localhost
+issuer=/CN=localhost
+---
+No client certificate CA names sent
+Peer signing digest: SHA512
+Server Temp Key: X25519, 253 bits
+---
+SSL handshake has read 1019 bytes and written 269 bytes
+Verification error: self signed certificate
+---
+New, TLSv1.2, Cipher is ECDHE-RSA-AES256-GCM-SHA384
+Server public key is 1024 bit
+Secure Renegotiation IS supported
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+SSL-Session:
+    Protocol  : TLSv1.2
+    Cipher    : ECDHE-RSA-AES256-GCM-SHA384
+    Session-ID: 513136EC1B470C34219E8642638D8033A96BDDAF8B0FFA400778C17655E084B0
+    Session-ID-ctx: 
+    Master-Key: 9C4044C2957AD45FEE7DDE59E9ED1E4804BE29FAD00CAF220A89AD82DABEDDA536B3EDE8D50A0ECBCCE54759EA57F4DC
+    PSK identity: None
+    PSK identity hint: None
+    SRP username: None
+    TLS session ticket lifetime hint: 7200 (seconds)
+    TLS session ticket:
+    0000 - df 12 86 44 83 09 d4 62-75 55 25 0c f8 4f 2c 53   ...D...buU%..O,S
+    0010 - 9c 4b 25 56 eb 54 94 fd-c0 28 71 62 3d 76 1e 72   .K%V.T...(qb=v.r
+    0020 - 23 48 d2 88 7d 99 b3 c2-39 c4 55 cc a9 2c 0d 61   #H..}...9.U..,.a
+    0030 - 41 c8 bf 78 83 b2 f9 bc-7d f2 dc 01 f7 c9 2d 9b   A..x....}.....-.
+    0040 - 6c 9d 09 bd f1 55 80 02-de f1 cf c8 54 81 65 76   l....U......T.ev
+    0050 - 9a 20 67 b9 55 bd cd 03-bf d6 8a 71 ff f3 00 3f   . g.U......q...?
+    0060 - 08 3c ce de 88 d8 49 b0-aa 35 a4 ae 4a 54 ac bc   .<....I..5..JT..
+    0070 - 29 76 ad ec 15 f2 75 c1-73 3a 06 90 c0 87 b0 6b   )v....u.s:.....k
+    0080 - f2 f3 dd ad df ea 44 2e-84 f6 b1 6a 11 d8 eb 78   ......D....j...x
+    0090 - e6 20 3e 78 71 2e c8 24-79 3e 58 ca 98 7f cc 2d   . >xq..$y>X....-
+
+    Start Time: 1557181421
+    Timeout   : 7200 (sec)
+    Verify return code: 18 (self signed certificate)
+    Extended master secret: yes
+---
+BfMYroe26WYalil77FoDi9qh59eK5xNr
+Correct!
+cluFn7wTiGryunymYOu4RcffSxQluehd
+
+#---------- Level 16
+bandit16@bandit:~$ nmap -p 31000-32000 localhost
+
+Starting Nmap 7.40 ( https://nmap.org ) at 2019-05-07 00:39 CEST
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.00019s latency).
+Not shown: 997 closed ports
+PORT      STATE SERVICE
+31046/tcp open  unknown
+31691/tcp open  unknown
+31790/tcp open  unknown
+31960/tcp open  unknown
+
+bandit16@bandit:~$ openssl s_client -connect localhost:31790
+
+---
+cluFn7wTiGryunymYOu4RcffSxQluehd
+Correct!
+-----BEGIN RSA PRIVATE KEY-----
+MIIEogIBAAKCAQEAvmOkuifmMg6HL2YPIOjon6iWfbp7c3jx34YkYWqUH57SUdyJ
+imZzeyGC0gtZPGujUSxiJSWI/oTqexh+cAMTSMlOJf7+BrJObArnxd9Y7YT2bRPQ
+Ja6Lzb558YW3FZl87ORiO+rW4LCDCNd2lUvLE/GL2GWyuKN0K5iCd5TbtJzEkQTu
+DSt2mcNn4rhAL+JFr56o4T6z8WWAW18BR6yGrMq7Q/kALHYW3OekePQAzL0VUYbW
+JGTi65CxbCnzc/w4+mqQyvmzpWtMAzJTzAzQxNbkR2MBGySxDLrjg0LWN6sK7wNX
+x0YVztz/zbIkPjfkU1jHS+9EbVNj+D1XFOJuaQIDAQABAoIBABagpxpM1aoLWfvD
+KHcj10nqcoBc4oE11aFYQwik7xfW+24pRNuDE6SFthOar69jp5RlLwD1NhPx3iBl
+J9nOM8OJ0VToum43UOS8YxF8WwhXriYGnc1sskbwpXOUDc9uX4+UESzH22P29ovd
+d8WErY0gPxun8pbJLmxkAtWNhpMvfe0050vk9TL5wqbu9AlbssgTcCXkMQnPw9nC
+YNN6DDP2lbcBrvgT9YCNL6C+ZKufD52yOQ9qOkwFTEQpjtF4uNtJom+asvlpmS8A
+vLY9r60wYSvmZhNqBUrj7lyCtXMIu1kkd4w7F77k+DjHoAXyxcUp1DGL51sOmama
++TOWWgECgYEA8JtPxP0GRJ+IQkX262jM3dEIkza8ky5moIwUqYdsx0NxHgRRhORT
+8c8hAuRBb2G82so8vUHk/fur85OEfc9TncnCY2crpoqsghifKLxrLgtT+qDpfZnx
+SatLdt8GfQ85yA7hnWWJ2MxF3NaeSDm75Lsm+tBbAiyc9P2jGRNtMSkCgYEAypHd
+HCctNi/FwjulhttFx/rHYKhLidZDFYeiE/v45bN4yFm8x7R/b0iE7KaszX+Exdvt
+SghaTdcG0Knyw1bpJVyusavPzpaJMjdJ6tcFhVAbAjm7enCIvGCSx+X3l5SiWg0A
+R57hJglezIiVjv3aGwHwvlZvtszK6zV6oXFAu0ECgYAbjo46T4hyP5tJi93V5HDi
+Ttiek7xRVxUl+iU7rWkGAXFpMLFteQEsRr7PJ/lemmEY5eTDAFMLy9FL2m9oQWCg
+R8VdwSk8r9FGLS+9aKcV5PI/WEKlwgXinB3OhYimtiG2Cg5JCqIZFHxD6MjEGOiu
+L8ktHMPvodBwNsSBULpG0QKBgBAplTfC1HOnWiMGOU3KPwYWt0O6CdTkmJOmL8Ni
+blh9elyZ9FsGxsgtRBXRsqXuz7wtsQAgLHxbdLq/ZJQ7YfzOKU4ZxEnabvXnvWkU
+YOdjHdSOoKvDQNWu6ucyLRAWFuISeXw9a/9p7ftpxm0TSgyvmfLF2MIAEwyzRqaM
+77pBAoGAMmjmIJdjp+Ez8duyn3ieo36yrttF5NSsJLAbxFpdlc1gvtGCWW+9Cq0b
+dxviW8+TFVEBl1O4f7HVm6EpTscdDxU+bCXWkfjuRb7Dy9GOtt9JPsX8MBTakzh3
+vBgsyi/sN3RqRBcGU40fOoZyfAMT8s1m/uYv52O6IgeuZ/ujbjY=
+-----END RSA PRIVATE KEY-----
+
+mkdir /tmp/xab
+cat > key
+-----BEGIN RSA PRIVATE KEY-----
+MIIEogIBAAKCAQEAvmOkuifmMg6HL2YPIOjon6iWfbp7c3jx34YkYWqUH57SUdyJ
+imZzeyGC0gtZPGujUSxiJSWI/oTqexh+cAMTSMlOJf7+BrJObArnxd9Y7YT2bRPQ
+Ja6Lzb558YW3FZl87ORiO+rW4LCDCNd2lUvLE/GL2GWyuKN0K5iCd5TbtJzEkQTu
+DSt2mcNn4rhAL+JFr56o4T6z8WWAW18BR6yGrMq7Q/kALHYW3OekePQAzL0VUYbW
+JGTi65CxbCnzc/w4+mqQyvmzpWtMAzJTzAzQxNbkR2MBGySxDLrjg0LWN6sK7wNX
+x0YVztz/zbIkPjfkU1jHS+9EbVNj+D1XFOJuaQIDAQABAoIBABagpxpM1aoLWfvD
+KHcj10nqcoBc4oE11aFYQwik7xfW+24pRNuDE6SFthOar69jp5RlLwD1NhPx3iBl
+J9nOM8OJ0VToum43UOS8YxF8WwhXriYGnc1sskbwpXOUDc9uX4+UESzH22P29ovd
+d8WErY0gPxun8pbJLmxkAtWNhpMvfe0050vk9TL5wqbu9AlbssgTcCXkMQnPw9nC
+YNN6DDP2lbcBrvgT9YCNL6C+ZKufD52yOQ9qOkwFTEQpjtF4uNtJom+asvlpmS8A
+vLY9r60wYSvmZhNqBUrj7lyCtXMIu1kkd4w7F77k+DjHoAXyxcUp1DGL51sOmama
++TOWWgECgYEA8JtPxP0GRJ+IQkX262jM3dEIkza8ky5moIwUqYdsx0NxHgRRhORT
+8c8hAuRBb2G82so8vUHk/fur85OEfc9TncnCY2crpoqsghifKLxrLgtT+qDpfZnx
+SatLdt8GfQ85yA7hnWWJ2MxF3NaeSDm75Lsm+tBbAiyc9P2jGRNtMSkCgYEAypHd
+HCctNi/FwjulhttFx/rHYKhLidZDFYeiE/v45bN4yFm8x7R/b0iE7KaszX+Exdvt
+SghaTdcG0Knyw1bpJVyusavPzpaJMjdJ6tcFhVAbAjm7enCIvGCSx+X3l5SiWg0A
+R57hJglezIiVjv3aGwHwvlZvtszK6zV6oXFAu0ECgYAbjo46T4hyP5tJi93V5HDi
+Ttiek7xRVxUl+iU7rWkGAXFpMLFteQEsRr7PJ/lemmEY5eTDAFMLy9FL2m9oQWCg
+R8VdwSk8r9FGLS+9aKcV5PI/WEKlwgXinB3OhYimtiG2Cg5JCqIZFHxD6MjEGOiu
+L8ktHMPvodBwNsSBULpG0QKBgBAplTfC1HOnWiMGOU3KPwYWt0O6CdTkmJOmL8Ni
+blh9elyZ9FsGxsgtRBXRsqXuz7wtsQAgLHxbdLq/ZJQ7YfzOKU4ZxEnabvXnvWkU
+YOdjHdSOoKvDQNWu6ucyLRAWFuISeXw9a/9p7ftpxm0TSgyvmfLF2MIAEwyzRqaM
+77pBAoGAMmjmIJdjp+Ez8duyn3ieo36yrttF5NSsJLAbxFpdlc1gvtGCWW+9Cq0b
+dxviW8+TFVEBl1O4f7HVm6EpTscdDxU+bCXWkfjuRb7Dy9GOtt9JPsX8MBTakzh3
+vBgsyi/sN3RqRBcGU40fOoZyfAMT8s1m/uYv52O6IgeuZ/ujbjY=
+-----END RSA PRIVATE KEY-----
+^D
+
+chmod 0600 key
+ssh -i bandit17@localhost
+
+#---------- Level 17
+bandit17@bandit:~$ diff -u passwords.old passwords.new
+--- passwords.old	2018-10-16 14:00:27.742867000 +0200
++++ passwords.new	2018-10-16 14:00:27.762867000 +0200
+@@ -39,7 +39,7 @@
+ gZ5U640FLMMChheWKHNdaQ1lKzLuqjxZ
+ Al0xVJb5bEzhnFG8nPFe6IJa2FjXVSzo
+ CT2ZJy6MoLkTqdHuhL5zUIsW41WCntAA
+-hlbSBPAWJmL6WFDb06gpTx1pPButblOA
++kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd   <----- this one
+ 46lUvvv0JJzyY0IOhWgGp5IjfsllmvaC
+ FcSd4Me936rwbk2pAU9ylx9NXTrzdCaX
+ vfU4mCzATtqUMNLg3a7mPs3OY6Dr4jaZ
+
+#----------- Level 18
+ssh -p 2220 bandit18@bandit.labs.overthewire.org cat readme
+bandit18@bandit.labs.overthewire.org's password: 
+IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
+
+#---------- Level 19
+bandit19@bandit:~$ ./bandit20-do cat /etc/bandit_pass/bandit20
+GbKksEFF4yrVs6il55v6gwY5aVje5f0j
+
+#---------- Level 20
+tmux
+# split screen horizontally by pressing:
+Control-b "              
+
+# switch to bottom terminal by pressing:
+Control-b <arrow-down>   
+
+# Start netcat in listen mode on port 11111
+bandit20@bandit:~$ netcat -l -p 11111
+
+# switch to top terminal by pressing
+Control-b <arrow-up>
+
+# Run 
+bandit20@bandit:~$ ./suconnect 11111
+
+# switch to bottom terminal and type the prior password
+GbKksEFF4yrVs6il55v6gwY5aVje5f0j
+
+#in response you'll get
+gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr
+
+#------- Level 21
+cat /etc/cron.d/cronjob_bandit22
+cat /usr/bin/cronjob_bandit22.sh 
+cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
+
+#------- Level 22
+bandit22@bandit:~$ cat /etc/cron.d/cronjob_bandit23 
+@reboot bandit23 /usr/bin/cronjob_bandit23.sh  &> /dev/null
+* * * * * bandit23 /usr/bin/cronjob_bandit23.sh  &> /dev/null
+
+bandit22@bandit:~$ cat /usr/bin/cronjob_bandit23.sh 
+#!/bin/bash
+myname=$(whoami)
+mytarget=$(echo I am user $myname | md5sum | cut -d ' ' -f 1)
+echo "Copying passwordfile /etc/bandit_pass/$myname to /tmp/$mytarget"
+cat /etc/bandit_pass/$myname > /tmp/$mytarget
+
+bandit22@bandit:/tmp/xac$ myname=bandit23
+bandit22@bandit:/tmp/xac$ mytarget=$(echo I am user $myname | md5sum | cut -d ' ' -f 1)
+bandit22@bandit:/tmp/xac$ echo $mytarget
+8ca319486bfbbc3663ea0fbe81326349
+bandit22@bandit:/tmp/xac$ cat /tmp/8ca319486bfbbc3663ea0fbe81326349
+jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n
+
+#---------- Level 23
+bandit23@bandit:~$ cat /etc/cron.d/cronjob_bandit24
+@reboot bandit24 /usr/bin/cronjob_bandit24.sh &> /dev/null
+* * * * * bandit24 /usr/bin/cronjob_bandit24.sh &> /dev/null
+bandit23@bandit:~$ cat /usr/bin/cronjob_bandit24.sh 
+#!/bin/bash
+
+myname=$(whoami)
+
+cd /var/spool/$myname
+echo "Executing and deleting all scripts in /var/spool/$myname:"
+for i in * .*;
+do
+    if [ "$i" != "." -a "$i" != ".." ];
+    then
+	echo "Handling $i"
+	timeout -s 9 60 ./$i
+	rm -f ./$i
+    fi
+done
+
+bandit23@bandit:/tmp/xad$ cat a.sh
+#!/bin/bash
+
+myname=$(whoami)
+output=/tmp/xad/ls.txt
+
+cd /var/spool/$myname
+ls -l > $output
+chmod 0777 $output
+
+bandit23@bandit:/tmp/xad$ chmod +x a.sh
+bandit23@bandit:/tmp/xad$ cp a.sh /var/spool/bandit24/
+bandit23@bandit:/tmp/xad$ cat ls.txt
+total 108
+-rwxr-xr-x 1 bandit23 bandit23  112 May  7 03:01 a.sh
+drwxrwx--- 2 bandit24 bandit24 4096 Apr 28 03:42 UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
+
+#-------- Level 24
+bandit24@bandit:/tmp/xae$ cat a.sh
+for i in 0 1 2 3 4 5 6 7 8 9
+do
+	for j in 0 1 2 3 4 5 6 7 8 9
+	do
+		for k in 0 1 2 3 4 5 6 7 8 9
+		do
+			for l in 0 1 2 3 4 5 6 7 8 9
+			do
+				echo UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ $i$j$k$l
+			done
+		done
+	done
+done
+bandit24@bandit:/tmp/xae$ bash a.sh | nc localhost 30002 | grep password
+I am the pincode checker for user bandit25. Please enter the password for user bandit24 and the secret pincode on a single line, separated by a space.
+The password of user bandit25 is uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG
+
+#---------- Level 25
+bandit25@bandit:~$ grep bandit26 /etc/passwd
+bandit26:x:11026:11026:bandit level 26:/home/bandit26:/usr/bin/showtext
+bandit25@bandit:~$ cat /usr/bin/showtext
+#!/bin/sh
+
+export TERM=linux
+
+more ~/text.txt
+exit 0
+
+#----------- Level 26
+#------ Minimize your terminal, so more command will prompt for pagination
+bandit25@bandit:~$ ssh -i bandit26.sshkey bandit26@localhost
+
+#------ Instead of pagination, type v (start vim to edit a file)
+#------ In vim :set shell=/bin/bash
+#------        :set shell?
+#------        :!bash
+
+bandit26@bandit:~$ ./bandit27-do cat /etc/bandit_pass/bandit27
+3ba3118a22e93127a4ed485be72ef5ea
+
+#--------- Level 27
+bandit27@bandit:~$ mkdir /tmp/xag
+bandit27@bandit:~$ cd /tmp/xag
+bandit27@bandit:/tmp/xag$ git clone ssh://bandit27-git@localhost/home/bandit27-git/repo
+Cloning into 'repo'...
+Could not create directory '/home/bandit27/.ssh'.
+The authenticity of host 'localhost (127.0.0.1)' can't be established.
+ECDSA key fingerprint is SHA256:98UL0ZWr85496EtCRkKlo20X3OPnyPSB5tB5RPbhczc.
+Are you sure you want to continue connecting (yes/no)? yes
+Failed to add the host to the list of known hosts (/home/bandit27/.ssh/known_hosts).
+This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+
+bandit27-git@localhost's password: 
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0)
+Receiving objects: 100% (3/3), done.
+bandit27@bandit:/tmp/xag$ ls
+repo
+bandit27@bandit:/tmp/xag$ cd repo
+bandit27@bandit:/tmp/xag/repo$ ls
+README
+bandit27@bandit:/tmp/xag/repo$ cat README 
+The password to the next level is: 0ef186ac70e04ea33b4c1853d2526fa2
+
+#---------- Level 28
+bandit28@bandit:/tmp/xah/repo$ git clone  ssh://bandit28-git@localhost/home/bandit28-git/repo
+bandit28@bandit:/tmp/xah/repo$ git log -p
+ - username: bandit29
+-- password: bbc96594b4e001778eee9975372716b2
++- password: xxxxxxxxxx
+
+#---------- Level 29
+bandit29@bandit:~$ mkdir /tmp/xai
+bandit29@bandit:~$ cd /tmp/xai
+bandit29@bandit:/tmp/xai$ git clone  ssh://bandit29-git@localhost/home/bandit29-git/repo
+Cloning into 'repo'...
+Could not create directory '/home/bandit29/.ssh'.
+The authenticity of host 'localhost (127.0.0.1)' can't be established.
+ECDSA key fingerprint is SHA256:98UL0ZWr85496EtCRkKlo20X3OPnyPSB5tB5RPbhczc.
+Are you sure you want to continue connecting (yes/no)? yes
+Failed to add the host to the list of known hosts (/home/bandit29/.ssh/known_hosts).
+This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+bandit29-git@localhost's password: 
+remote: Counting objects: 16, done.
+remote: Compressing objects: 100% (11/11), done.
+remote: Total 16 (delta 2), reused 0 (delta 0)
+Receiving objects: 100% (16/16), done.
+Resolving deltas: 100% (2/2), done.
+bandit29@bandit:/tmp/xai$ git log -p
+bandit29@bandit:/tmp/xai/repo$ git checkout dev
+bandit29@bandit:/tmp/xai/repo$ cat README.md 
+# Bandit Notes
+Some notes for bandit30 of bandit.
+
+## credentials
+
+- username: bandit30
+- password: 5b90576bedb2cc04c86a9e924ce42faf
+
